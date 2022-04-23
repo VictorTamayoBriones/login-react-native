@@ -1,7 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Dimensions } from 'react-native';
 import Svg, { Path, Defs, LinearGradient, Stop } from 'react-native-svg'
+import { ButtonGradient } from './button';
 
+const { width, height } = Dimensions.get('window')
 export default function App() {
 
   function SvgTop(){
@@ -59,6 +61,8 @@ export default function App() {
         <Text style={styles.subTitle} >Sign in to your account</Text>
         <TextInput style={styles.input} placeholder='mark_s@lumon.com' />
         <TextInput style={styles.input} placeholder='password' />
+        <Text style={{ color: '#ccc' }} >forgot your password?</Text>
+        <ButtonGradient/>
         <StatusBar style="auto" />
       </View>
     </View>
@@ -75,8 +79,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   containerSvg:{
+    width: width,
     justifyContent: 'flex-start',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   titulo:{
     fontSize: 80,
